@@ -18,7 +18,7 @@ export default function SettingScreen(props) {
   const changeDeepColor = async () => {
     try {
       // 從AsyncStorage 引入參數
-      let changeDeep = await StorageHelper.getUserState('nowDeep') == 'on' ? 'off' : 'on'
+      let changeDeep = (await StorageHelper.getUserState('nowDeep')) == 'on' ? 'off' : 'on'
       // 寫入AsyncStorage nowDeep
       await StorageHelper.setUserState('nowDeep', changeDeep)
       // 寫入redux changeDeep
@@ -34,7 +34,7 @@ export default function SettingScreen(props) {
         <Text style={styles.buttonText}>補漏刷卡</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.buttonBorder} onPress={() => changeDeepColor()}>
-        <Text style={styles.buttonText}>顯示設定</Text>
+        <Text style={styles.buttonText}>系統背景設定</Text>
       </TouchableOpacity>
       <TouchableOpacity style={styles.buttonBorder} onPress={() => Alert.alert('規劃中')}>
         <Text style={styles.buttonText}>帳號管理</Text>
