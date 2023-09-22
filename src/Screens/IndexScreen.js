@@ -21,7 +21,7 @@ function MainScreen(props) {
       screenOptions={{
         headerStyle: { backgroundColor: '#565656' },
         headerTintColor: 'white',
-        headerTitle: 'HR系統',
+        headerTitle: 'ZombieClub   HR 打卡系統',
       }}
     >
       <Stack.Screen name="Home" component={HomeScreen}
