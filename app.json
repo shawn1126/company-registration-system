@@ -17,7 +17,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.shawn90830.testzombiclub"
     },
     "android": {
       "adaptiveIcon": {
@@ -28,6 +29,11 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "description": ""
+    "description": "",
+    "extra": {
+      "eas": {
+        "projectId": "60a9f6a1-4f9f-4204-a5ef-6e0f9e9d377a"
+      }
+    }
   }
 }
