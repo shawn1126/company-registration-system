@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, StyleSheet, Alert, Text, Modal } from "react-native";
+import { View,ScrollView, StyleSheet, Alert, Text, Modal } from "react-native";
 import { Calendar } from "react-native-calendars";
 import { Button, TextInput } from "react-native-paper";
 import { SelectList } from "react-native-dropdown-select-list";
@@ -101,7 +101,7 @@ const RegistrationLeaving = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <Calendar
         onDayPress={handleOnDayPress}
         style={{
@@ -191,7 +191,7 @@ const RegistrationLeaving = () => {
       >
         請假
       </Button>
-    </View>
+    </ScrollView>
   );
 };
 
