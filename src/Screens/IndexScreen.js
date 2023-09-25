@@ -20,7 +20,7 @@ function MainScreen(props) {
       screenOptions={{
         headerStyle: { backgroundColor: "#565656" },
         headerTintColor: "white",
-        headerTitle: "HR系統",
+        headerTitle: "ZombieClub HR系統",
       }}
     >
       <Stack.Screen
@@ -39,7 +39,7 @@ function MainScreen(props) {
         name="RegistrationLeaving"
         component={RegistrationLeaving}
         options={{
-          headerTitle: "請假",
+          headerTitle: "請假系統",
         }}
       />
     </Stack.Navigator>
