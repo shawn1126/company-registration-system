@@ -48,7 +48,7 @@ export default function LoginScreen(props) {
               disPatch(LoginInformation(response));
               console.log("登入");
 
-              props.navigation.push("IndexScreen");
+              props.navigation.push("IndexScreen");//進入index screen
             } else {
               feedback = "帳號或密碼輸入錯誤";
             }
