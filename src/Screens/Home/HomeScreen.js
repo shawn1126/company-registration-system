@@ -27,17 +27,18 @@ export default function HomeScreen(props) {
   const [todayRecord, setTodayRecord] = useState(userInformation.todayRecord);
   const [ipAddress, setIpAddress] = useState("");
 
-  useEffect(() => {
-    fetch("https://api.ipify.org?format=json")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        console.log("data", data);
-        setIpAddress(data.ip);
-      })
-      .catch((error) => console.error("Error fetching IP Address: ", error));
-  }, [ipAddress]);
+  // useEffect(() => {
+  //   fetch("https://api.ipify.org?format=json")
+  //     .then((response) => {
+  //       console.log("res",response.json());
+  //       return response.json();
+  //     })
+  //     .then((data) => {
+  //       console.log("data", data);
+  //       setIpAddress(data.ip);
+  //     })
+  //     .catch((error) => console.error("Error fetching IP Address: ", error));
+  // }, [ipAddress]);
 
   const setRecord = async (_setData) => {
     let fetchJson = {
@@ -126,8 +127,8 @@ export default function HomeScreen(props) {
       console.log("your ip address is at", ipAddress);
       return;
     } else {
-      console.log("your ip address is wrong");
-      return fasle;
+      console.log("your ip address is wrong.please connect to company wifi.");
+      return false;
     }
   };
 
@@ -190,7 +191,7 @@ export default function HomeScreen(props) {
       </TouchableOpacity>
       <TouchableOpacity
         style={[styles.buttonBorder]}
-        onPress={() => props.navigation.push("HomeDetailScreen")}
+        onPress={() => props.navigation.push("HomeDetailScreen")}//進入homedetail page
       >
         <Text style={styles.buttonFont}>查詢</Text>
       </TouchableOpacity>
