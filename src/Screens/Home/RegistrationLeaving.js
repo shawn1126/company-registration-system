@@ -183,7 +183,7 @@ const RegistrationLeaving = () => {
             height: 300,
           }}
         /> */}
-      <View style={{ flex: 25 }}>
+      <View style={{ flex: 30 }}>
         <Calendar
           startDate="2023-10-03"
           endDate="2023-10-10"
