@@ -1,5 +1,9 @@
 import { StatusBar } from "expo-status-bar";
+<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
+=======
+import React, { useState } from "react";
+>>>>>>> fork-fix
 import {
   StyleSheet,
   Text,
@@ -9,9 +13,14 @@ import {
   Alert,
 } from "react-native";
 import DateTime from "./ShowDateTime";
+<<<<<<< HEAD
 // import { isIP, isIPv4 } from "is-ip";
 import { NetworkInfo, DeviceInfo } from "react-native-network-info";
 import Config from "react-native-config";
+=======
+import { isIP, isIPv4 } from "is-ip";
+import config from "react-native-config";
+>>>>>>> fork-fix
 
 // for redux
 import { useMappedState } from "redux-react-hook";
@@ -25,6 +34,7 @@ export default function HomeScreen(props) {
   const nowBasicStyle = useMappedState((state) => state.basicStyle);
   const userInformation = useMappedState((state) => state.userInformation);
   const [todayRecord, setTodayRecord] = useState(userInformation.todayRecord);
+<<<<<<< HEAD
   const [ipAddress, setIpAddress] = useState("");
 
   // useEffect(() => {
@@ -39,6 +49,8 @@ export default function HomeScreen(props) {
   //     })
   //     .catch((error) => console.error("Error fetching IP Address: ", error));
   // }, [ipAddress]);
+=======
+>>>>>>> fork-fix
 
   const setRecord = async (_setData) => {
     let fetchJson = {
@@ -118,6 +130,7 @@ export default function HomeScreen(props) {
   };
 
   const IPAddressValidation = () => {
+<<<<<<< HEAD
     console.log("ipAddress", ipAddress);
     console.log(
       "Config.COMPANY_IP_ADDRES",
@@ -129,10 +142,20 @@ export default function HomeScreen(props) {
     } else {
       console.log("your ip address is wrong.please connect to company wifi.");
       return false;
+=======
+    console.log("ip address", config.COMPANY_IP_ADDRESS);
+    if (isIP(config.COMPANY_IP_ADDRESS)) {
+      console.log("your ip address is at", config.COMPANY_IP_ADDRESS);
+      return true;
+    } else {
+      console.log("your ip address is wrong");
+      return;
+>>>>>>> fork-fix
     }
   };
 
   const showPunchAlert = () => {
+<<<<<<< HEAD
     console.log("calling showPunchAlert");
     if (IPAddressValidation) {
       console.log("ipAddress", ipAddress);
@@ -140,6 +163,9 @@ export default function HomeScreen(props) {
         "Config.COMPANY_IP_ADDRESS",
         process.env.EXPO_PUBLIC_COMPANY_IP_ADDRESS
       );
+=======
+    if (IPAddressValidation) {
+>>>>>>> fork-fix
       let now = new Date();
       let nowDateTime = strToDate("", now);
       let nowTime = strToDate("time", now);
@@ -164,8 +190,11 @@ export default function HomeScreen(props) {
       Alert.alert(`請連到公司內網進行簽到或簽退`);
     }
   };
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> fork-fix
 
   return (
     <View
@@ -191,7 +220,11 @@ export default function HomeScreen(props) {
       </TouchableOpacity>
       <TouchableOpacity
         style={[styles.buttonBorder]}
+<<<<<<< HEAD
         onPress={() => props.navigation.push("HomeDetailScreen")}//進入homedetail page
+=======
+        onPress={() => props.navigation.push("HomeDetailScreen")}
+>>>>>>> fork-fix
       >
         <Text style={styles.buttonFont}>查詢</Text>
       </TouchableOpacity>
@@ -223,8 +256,13 @@ const styles = StyleSheet.create({
     borderRadius: 255,
   },
   buttonBorder: {
+<<<<<<< HEAD
     width: "80%",
     height: "8%",
+=======
+    width: "70%",
+    height: "9%",
+>>>>>>> fork-fix
     backgroundColor: "#4C82C0",
     alignItems: "center",
     justifyContent: "center",

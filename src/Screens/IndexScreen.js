@@ -18,9 +18,15 @@ function MainScreen(props) {
     <Stack.Navigator
       initialRouteName="Home"
       screenOptions={{
+<<<<<<< HEAD
         headerStyle: { backgroundColor: "#565656" },
         headerTintColor: "white",
         headerTitle: "ZombieClub HR系統",
+=======
+        headerStyle: { backgroundColor: '#565656' },
+        headerTintColor: 'white',
+        headerTitle: 'ZombieClub   HR 打卡系統',
+>>>>>>> fork-fix
       }}
     >
       <Stack.Screen

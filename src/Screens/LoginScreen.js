@@ -48,7 +48,11 @@ export default function LoginScreen(props) {
               disPatch(LoginInformation(response));
               console.log("登入");
 
+<<<<<<< HEAD
               props.navigation.push("IndexScreen");//進入index screen
+=======
+              props.navigation.push("IndexScreen");
+>>>>>>> fork-fix
             } else {
               feedback = "帳號或密碼輸入錯誤";
             }
@@ -191,4 +195,8 @@ const styles = StyleSheet.create({
   loginText: {
     padding: 10,
   },
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> fork-fix

@@ -1,5 +1,9 @@
 //    "https://script.google.com/macros/s/AKfycbzjUxokJQqZRmcrvmQprWaAQ6mE_brmuSpIzlAHD6sYEiKC2-NctUJthIsBbTC8_GfdPQ/exec";
+<<<<<<< HEAD
 //https://script.google.com/macros/s/AKfycbzjUxokJQqZRmcrvmQprWaAQ6mE_brmuSpIzlAHD6sYEiKC2-NctUJthIsBbTC8_GfdPQ/exec
+=======
+
+>>>>>>> fork-fix
 /**
  *
  * @param {*} _body
@@ -36,4 +40,8 @@ export function fetchData(_body) {
         console.log("error 是", err);
       });
   });
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> fork-fix
