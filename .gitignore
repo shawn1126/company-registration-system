@@ -2,6 +2,11 @@
 .vercel
 .expo
 dist
+
+/node_modules
+.vercel
+.expo
+dist
 # production
 /build
 /dist
