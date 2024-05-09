@@ -3,7 +3,7 @@ import { StyleSheet, } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from './src/Screens/LoginScreen';
-import IndexScreen from './src/Screens/IndexScreen'
+import IndexScreen from './src/Screens/IndexScreen';
 
 // for redux
 import configureStore from './src/redux/store';
