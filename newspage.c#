@@ -1,0 +1,130 @@
+using System.Data.SqlClient;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+using ZOMBIE.App_Code.models;
+
+namespace ZOMBIE.App_Code.api
+{
+  
+    public class NewsListController : ApiController
+    {
+        protected DAL.DBUtil db = new DAL.DBUtil();
+        protected Function cfn = new Function();
+        string img_url = "http://18.218.97.19/upload/";
+        // GET: api/NewsList
+        public IEnumerable<string> Get()
+        {
+            return new string[] { "value1", "value2" };
+        }
+
+        // GET: api/NewsList/5
+        public string Get(int id)
+        {
+            return "value";
+        }
+
+        // POST: api/NewsList
+        public Object Post([FromBody] request_news_list reqs)
+        {
+            response_news_list data_response = new response_news_list();
+
+            if (reqs.login_token.Length > 0)
+            {
+                newsList nwl = new newsList();
+                string sql_query = string.Empty;
+                int page_index = 1;
+                int pageCount = 1;
+                if (reqs.page_index.ToString() != "")
+                {
+                    page_index = reqs.page_index;
+                }
+
+                int currentItems = 6 * (page_index - 1);
+
+                object _total;
+                int itemTotal = 0;
+
+                sql_query = "SELECT COUNT(news_id) AS _total FROM tb_news WHERE activate = 'Y'";
+
+                _total = db.GetSingle(sql_query);
+
+
+                itemTotal = (int)_total;
+                //Debug
+                //Response.Write(itemTotal.ToString());
+                pageCount = itemTotal / 6;
+                //Debug
+                //Response.Write(pageCount.ToString());
+                if (itemTotal % 6 > 0)
+                {
+                    pageCount = pageCount + 1;
+                }
+
+                nwl.isLast = "N";
+                if (page_index >= pageCount)
+                {
+                    nwl.isLast = "Y";
+                }
+
+                sql_query = "SELECT TOP 6 * FROM " +
+                    "(SELECT *, CONVERT(CHAR(10),news_date,111) AS _date, ROW_NUMBER() OVER(ORDER BY news_date DESC) AS num FROM tb_news WHERE activate = 'Y') AS a  " +
+                    "WHERE num > " + currentItems + " ORDER BY news_date DESC";
+
+                SqlDataReader sdr = db.ExecuteReader(sql_query);
+
+                List<news> nws = new List<news>();
+
+                while (sdr.Read())
+                {
+
+                    news nw = new news();
+                    nw.news_id = sdr["news_id"].ToString();
+                    nw.news_title = sdr["news_title"].ToString();
+                    nw.news_date = sdr["_date"].ToString();
+                    nw.news_creator = sdr["news_creator"].ToString();
+                    nw.news_brief = sdr["news_brief"].ToString().Replace("\r\n", "<br />");
+                    nw.news_img = img_url + sdr["news_img"].ToString();
+                    nw.news_img_rwd = img_url + sdr["news_img_rwd"].ToString();
+
+                    nws.Add(nw);
+                    
+                }
+
+                nwl.newsCollection = nws;
+
+                sdr.Close();
+                data_response.status = 0;
+                data_response.message = "success";
+                data_response.data = nwl;
+            }
+            else
+            {
+                data_response.status = -1;
+                data_response.message = "TOKEN IS NOT VALID";
+                data_response.data = null;
+            }
+
+            return data_response;
+        }
+
+        // PUT: api/NewsList/5
+        public void Put(int id, [FromBody]string value)
+        {
+
+        }
+
+        // DELETE: api/NewsList/5
+        public void Delete(int id)
+        {
+        }
+    }
+
+    public class response_news_list
+    {
+        public int status { get; set; }
+        public string message { get; set; }
+        public newsList data { get; set; }
+    }
+}
