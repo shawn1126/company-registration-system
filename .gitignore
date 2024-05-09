@@ -1,9 +1,10 @@
+/node_modules
 .vercel
 .expo
 dist
 # production
 /build
-
+/dist
 # misc
 .DS_Store
 .env.local
@@ -15,3 +16,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 yarn.lock
+img
+dist
