@@ -36,7 +36,7 @@ const Navigation = () => {
   const userInformation = useMappedState((state) => state.userInformation);
 
   const ipVerifiyData = [
-    { key: "Robert", value: "192.168.31.174" },
+    // { key: "Robert", value: "192.168.31.174" },
     { key: "Eric", value: "192.168.31.156" },
     { key: "Ivan", value: "192.168.31.22" },
     { key: "Howard", value: "192.168.31.206" },
